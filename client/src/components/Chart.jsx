@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { useState, useEffect } from "react";
 import supabase from "../../supaBaseData";
 ("use client");
 import {
-  AreaChart,
-  Area,
+  BarChart,
+  Bar,
   ResponsiveContainer,
   XAxis,
   YAxis,
@@ -34,17 +35,31 @@ const Chart = () => {
   return (
     <>
       <div className="flex justify-center mt-14">
-        <AreaChart width={800} height={400} data={items}>
+        <BarChart width={800} height={400} data={items}>
           <YAxis />
-          <XAxis dataKey="billdate" />
+          <XAxis dataKey="vendor" />
           <CartesianGrid />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Legend />
-          <Area type="monotone" dataKey="billamount" />
-        </AreaChart>
+          <Bar type="monotone" dataKey="billamount" />
+        </BarChart>
       </div>
     </>
   );
 };
 
 export default Chart;
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="p-4 bg-slate-300 flex flex-col gap-4 rounded-md">
+        <p className="text-medium text-lg">{label}</p>
+        <p className="text-sm text-blue-400">
+          BillAmount:
+          <span className="ml-2">${payload[0].value}</span>
+        </p>
+      </div>
+    );
+  }
+};
