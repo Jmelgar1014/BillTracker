@@ -14,28 +14,11 @@ import {
   Legend,
 } from "recharts";
 
-const Chart = () => {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data, error } = await supabase.from("row_items").select();
-
-      if (data) {
-        setItems(data);
-      }
-    };
-    getData();
-  }, [items]);
-
-  //console.log(intItems);
-
-  // Debugging logs
-
+const Chart = ({ data }) => {
   return (
     <>
       <div className="flex justify-center mt-14">
-        <BarChart width={800} height={400} data={items}>
+        <BarChart width={800} height={400} data={data}>
           <YAxis />
           <XAxis dataKey="vendor" />
           <CartesianGrid />

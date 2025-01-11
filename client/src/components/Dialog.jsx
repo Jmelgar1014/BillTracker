@@ -35,7 +35,7 @@ export default function AlertDialog({ item }) {
       <Button
         variant="outlined"
         onClick={handleClickOpen}
-        className=" absolute  right-0"
+        className=" absolute  right-0 "
       >
         <FaTrash />
       </Button>

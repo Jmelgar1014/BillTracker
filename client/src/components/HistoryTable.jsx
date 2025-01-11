@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import UserRow from "./UserRow";
 import supabase from "../../supaBaseData";
@@ -7,32 +8,7 @@ import Dialog from "../components/Dialog";
 
 import { isAuthSessionMissingError } from "@supabase/supabase-js";
 
-const HistoryTable = () => {
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    const getHistory = async () => {
-      const { data, error } = await supabase.from("row_items").select();
-
-      if (data) {
-        setItems(data);
-      } else {
-        console.log("The following error occurred: " + error);
-      }
-    };
-    getHistory();
-  }, [items]);
-
-  const removeItem = async (e) => {
-    e.preventDefault();
-
-    const rowId = e.target.value;
-
-    const response = await supabase
-      .from("row_items")
-      .delete()
-      .eq("item_id", rowId);
-  };
+const HistoryTable = ({ data }) => {
   return (
     <>
       <div className="flex justify-center m-16">
@@ -45,8 +21,8 @@ const HistoryTable = () => {
             </tr>
           </thead>
           <tbody className=" ">
-            {items.length > 0
-              ? items.map((item) => (
+            {data.length > 0
+              ? data.map((item) => (
                   <tr
                     className="hover:bg-slate-300/30 cursor-pointer"
                     key={item.item_id}
@@ -64,7 +40,9 @@ const HistoryTable = () => {
                     <td className="border-t-2 border-slate-300 ">
                       <div className="flex justify-center m-2 p-2 relative">
                         {item.billdate}
-                        <Dialog item={item} className=" absolute  right-0" />
+                        <div className=" absolute  right-0">
+                          <Dialog item={item} />
+                        </div>
 
                         {/* <button
                           className=" absolute  right-0"
