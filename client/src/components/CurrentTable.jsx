@@ -3,7 +3,7 @@ import React from "react";
 
 import Dialog from "../components/Dialog";
 
-const HistoryTable = ({ data }) => {
+const CurrentTable = ({ data }) => {
   return (
     <>
       <div className="flex justify-center m-16">
@@ -40,12 +40,12 @@ const HistoryTable = ({ data }) => {
                         </div>
 
                         {/* <button
-                          className=" absolute  right-0"
-                          value={item.item_id}
-                          onClick={removeItem}
-                        >
-                          <FaTrash className=" text-xl hover:text-red-700  rounded-md " />
-                        </button> */}
+                              className=" absolute  right-0"
+                              value={item.item_id}
+                              onClick={removeItem}
+                            >
+                              <FaTrash className=" text-xl hover:text-red-700  rounded-md " />
+                            </button> */}
                       </div>
                     </td>
                   </tr>
@@ -58,4 +58,4 @@ const HistoryTable = ({ data }) => {
   );
 };
 
-export default HistoryTable;
+export default CurrentTable;

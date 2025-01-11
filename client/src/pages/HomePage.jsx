@@ -1,13 +1,15 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import FormTable from "../components/FormTable";
-import HistoryTable from "../components/HistoryTable";
+
 import Chart from "../components/Chart";
 import { useState, useEffect } from "react";
 import supabase from "../../supaBaseData";
+import CurrentTable from "../components/CurrentTable";
 
 const HomePage = () => {
   const [items, setItems] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     const getHistory = async () => {
@@ -20,14 +22,18 @@ const HomePage = () => {
       }
     };
     getHistory();
-  }, [items]);
+  }, [refresh]);
+
+  const handleRefresh = () => {
+    setRefresh((prev) => !prev);
+  };
 
   return (
     <>
       <Navbar />
-      <FormTable />
+      <FormTable onSub={handleRefresh} />
       <Chart data={items} />
-      <HistoryTable data={items} />
+      <CurrentTable data={items} />
     </>
   );
 };

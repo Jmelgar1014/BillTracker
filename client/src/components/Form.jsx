@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import supabase from "../../supaBaseData";
 import { useState, useEffect } from "react";
@@ -5,7 +6,7 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Alert from "@mui/material/Alert";
 
-const Form = () => {
+const Form = ({ onFormSubmit }) => {
   const [vendor, setVendor] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -32,6 +33,7 @@ const Form = () => {
 
         setSuccess(false);
       }
+      onFormSubmit();
 
       setAmount("");
       setVendor("");
