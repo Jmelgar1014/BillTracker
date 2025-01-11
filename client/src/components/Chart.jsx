@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { useState, useEffect } from "react";
-import supabase from "../../supaBaseData";
+
 ("use client");
 import {
   BarChart,
