@@ -27,7 +27,9 @@ const HistoryPage = () => {
   return (
     <>
       <Navbar />
-      {loading ? <Spinner /> : <HistoryTable data={items} />}
+      <div className="flex justify-center">
+        {loading ? <Spinner size="120px" /> : <HistoryTable data={items} />}
+      </div>
     </>
   );
 };
