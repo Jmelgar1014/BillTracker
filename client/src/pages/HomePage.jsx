@@ -33,7 +33,7 @@ const HomePage = () => {
       <Navbar />
       <FormTable onSub={handleRefresh} />
       <Chart data={items} />
-      <CurrentTable data={items} />
+      <CurrentTable data={items} refresh={handleRefresh} />
     </>
   );
 };

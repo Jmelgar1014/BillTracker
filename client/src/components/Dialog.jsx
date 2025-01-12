@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { FaTrash } from "react-icons/fa";
 import supabase from "../../supaBaseData";
 
-export default function AlertDialog({ item }) {
+const AlertDialog = ({ item, onDelete }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = (e) => {
@@ -28,6 +28,8 @@ export default function AlertDialog({ item }) {
       .from("row_items")
       .delete()
       .eq("item_id", rowId);
+
+    onDelete();
   };
 
   return (
@@ -62,4 +64,6 @@ export default function AlertDialog({ item }) {
       </Dialog>
     </React.Fragment>
   );
-}
+};
+
+export default AlertDialog;

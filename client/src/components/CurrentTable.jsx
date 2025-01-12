@@ -3,7 +3,7 @@ import React from "react";
 
 import Dialog from "../components/Dialog";
 
-const CurrentTable = ({ data }) => {
+const CurrentTable = ({ data, refresh }) => {
   return (
     <>
       <div className="flex justify-center m-16">
@@ -36,16 +36,8 @@ const CurrentTable = ({ data }) => {
                       <div className="flex justify-center m-2 p-2 relative">
                         {item.billdate}
                         <div className=" absolute  right-0">
-                          <Dialog item={item} />
+                          <Dialog item={item} onDelete={refresh} />
                         </div>
-
-                        {/* <button
-                              className=" absolute  right-0"
-                              value={item.item_id}
-                              onClick={removeItem}
-                            >
-                              <FaTrash className=" text-xl hover:text-red-700  rounded-md " />
-                            </button> */}
                       </div>
                     </td>
                   </tr>
