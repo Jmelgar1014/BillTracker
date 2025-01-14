@@ -1,12 +1,12 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import FormTable from "../components/FormTable";
-
 import Chart from "../components/Chart";
 import { useState, useEffect } from "react";
 import supabase from "../../supaBaseData";
 import CurrentTable from "../components/CurrentTable";
 import Spinner from "../components/Spinner";
+import MonthList from "../components/MonthList";
 
 const HomePage = () => {
   const [items, setItems] = useState([]);
@@ -41,6 +41,8 @@ const HomePage = () => {
       ) : (
         <CurrentTable data={items} refresh={handleRefresh} />
       )}
+
+      <MonthList />
     </>
   );
 };

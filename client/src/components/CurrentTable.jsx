@@ -2,6 +2,7 @@
 import React from "react";
 
 import Dialog from "../components/Dialog";
+import MonthList from "./MonthList";
 
 const CurrentTable = ({ data, refresh }) => {
   return (
@@ -45,6 +46,7 @@ const CurrentTable = ({ data, refresh }) => {
               : "Submit information to display here."}{" "}
           </tbody>
         </table>
+        <MonthList />
       </div>
     </>
   );

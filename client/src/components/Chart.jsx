@@ -16,6 +16,9 @@ import {
 const Chart = ({ data }) => {
   return (
     <>
+      <div className="flex justify-center mt-12">
+        <h1 className="text-3xl">January 2025</h1>
+      </div>
       <div className="flex justify-center mt-14">
         <BarChart width={800} height={400} data={data}>
           <YAxis />
