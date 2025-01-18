@@ -8,7 +8,7 @@ const CurrentTable = ({ data, refresh }) => {
   return (
     <>
       <div className="flex justify-center m-16">
-        <table className="table-fixed w-[800px] border-separate border-spacing-0 border-2  rounded-t-3xl border-slate-300 shadow-md">
+        <table className="table-fixed w-[700px] border-separate border-spacing-0 border-2  rounded-t-3xl border-slate-300 shadow-md">
           <thead className="">
             <tr className="h-16 ">
               <th className="m-4 p-2 mx-16 ">Vendor</th>

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-
+import { useParams } from "react-router-dom";
 ("use client");
 import {
   BarChart,
@@ -14,10 +14,11 @@ import {
 } from "recharts";
 
 const Chart = ({ data }) => {
+  const { month } = useParams();
   return (
     <>
       <div className="flex justify-center mt-12">
-        <h1 className="text-3xl">January 2025</h1>
+        <h1 className="text-3xl">{month} 2025</h1>
       </div>
       <div className="flex justify-center mt-14">
         <BarChart width={800} height={400} data={data}>

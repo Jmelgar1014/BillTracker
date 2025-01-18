@@ -7,8 +7,11 @@ import supabase from "../../supaBaseData";
 import CurrentTable from "../components/CurrentTable";
 import Spinner from "../components/Spinner";
 import MonthList from "../components/MonthList";
+import { useParams, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
+  const { month } = useParams();
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -16,7 +19,6 @@ const HomePage = () => {
     setLoading(true);
     const getHistory = async () => {
       const { data, error } = await supabase.from("row_items").select();
-
       if (data) {
         setItems(data);
         setLoading(false);
@@ -30,7 +32,6 @@ const HomePage = () => {
   const handleRefresh = () => {
     setRefresh((prev) => !prev);
   };
-
   return (
     <>
       <Navbar />

@@ -1,15 +1,20 @@
+/* eslint-disable react/prop-types */
 import * as React from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useParams, useNavigate } from "react-router-dom";
 
 const MonthList = () => {
   const [month, setMonth] = React.useState("");
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    setMonth(event.target.value);
+    const selectedMonth = event.target.value;
+    setMonth(selectedMonth);
+    navigate(`/home/${selectedMonth}`); // Replace `/your-base-url/` with your desired base URL.
   };
   return (
     <div className="w-32 ml-4">
