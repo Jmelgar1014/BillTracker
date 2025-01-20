@@ -13,12 +13,18 @@ import {
   Legend,
 } from "recharts";
 
+import getMonth from "../getMonth";
+
 const Chart = ({ data }) => {
   const { month } = useParams();
   return (
     <>
       <div className="flex justify-center mt-12">
-        <h1 className="text-3xl">{month} 2025</h1>
+        {month ? (
+          <h1 className="text-3xl">{month} 2025</h1>
+        ) : (
+          <h1 className="text-3xl">{getMonth()} 2025</h1>
+        )}
       </div>
       <div className="flex justify-center mt-14">
         <BarChart width={800} height={400} data={data}>

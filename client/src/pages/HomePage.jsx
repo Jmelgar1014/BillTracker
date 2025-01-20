@@ -8,7 +8,9 @@ import CurrentTable from "../components/CurrentTable";
 import Spinner from "../components/Spinner";
 import MonthList from "../components/MonthList";
 import { useParams, useNavigate } from "react-router-dom";
-
+import getMonth from "../getMonth";
+import { getMonthNumber } from "../getMonth";
+import { ContinuousColorLegend } from "@mui/x-charts";
 const HomePage = () => {
   const { month } = useParams();
   const navigate = useNavigate();
@@ -47,20 +49,13 @@ const HomePage = () => {
             } else {
               setItems(data);
             }
-          } else {
-            // If no valid month is selected, fetch all data
-            const { data, error } = await supabase
-              .from("row_items")
-              .select("*");
-
-            if (error) {
-              console.error("Error fetching all data:", error);
-            } else {
-              setItems(data);
-            }
           }
         } else {
-          const { data, error } = await supabase.from("row_items").select("*");
+          const current = getMonthNumber();
+          console.log(typeof current);
+          const { data, error } = await supabase.rpc("filter_by_month", {
+            month_num: parseInt(current, 10),
+          });
 
           if (error) {
             console.error("Error fetching all data:", error);
