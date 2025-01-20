@@ -1,0 +1,11 @@
+        if (monthValue) {
+          const { data, error } = await supabase.rpc("filter_by_month", {
+            month_num: monthValue,
+          });
+          if (error) {
+            console.log("Error fetching date:", error);
+          } else {
+            setItems(data);
+            setLoading(false);
+          }
+        }

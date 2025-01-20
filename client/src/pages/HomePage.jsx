@@ -16,18 +16,67 @@ const HomePage = () => {
   const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
     const getHistory = async () => {
-      const { data, error } = await supabase.from("row_items").select();
-      if (data) {
-        setItems(data);
-        setLoading(false);
-      } else {
-        console.log("The following error occurred: " + error);
+      setLoading(true); // Start loading
+      try {
+        if (month) {
+          const monthMapping = {
+            January: "01",
+            February: "02",
+            March: "03",
+            April: "04",
+            May: "05",
+            June: "06",
+            July: "07",
+            August: "08",
+            September: "09",
+            October: "10",
+            November: "11",
+            December: "12",
+          };
+
+          const monthValue = monthMapping[month] || null;
+
+          if (monthValue) {
+            const { data, error } = await supabase.rpc("filter_by_month", {
+              month_num: parseInt(monthValue, 10),
+            });
+
+            if (error) {
+              console.error("Error fetching data by month:", error);
+            } else {
+              setItems(data);
+            }
+          } else {
+            // If no valid month is selected, fetch all data
+            const { data, error } = await supabase
+              .from("row_items")
+              .select("*");
+
+            if (error) {
+              console.error("Error fetching all data:", error);
+            } else {
+              setItems(data);
+            }
+          }
+        } else {
+          const { data, error } = await supabase.from("row_items").select("*");
+
+          if (error) {
+            console.error("Error fetching all data:", error);
+          } else {
+            setItems(data);
+          }
+        }
+      } catch (error) {
+        console.error("Unexpected error:", error);
+      } finally {
+        setLoading(false); // Ensure loading stops regardless of success or failure
       }
     };
-    getHistory();
-  }, [refresh]);
+
+    getHistory(); // Ensure the function is called
+  }, [refresh, month]);
 
   const handleRefresh = () => {
     setRefresh((prev) => !prev);
@@ -42,8 +91,6 @@ const HomePage = () => {
       ) : (
         <CurrentTable data={items} refresh={handleRefresh} />
       )}
-
-      <MonthList />
     </>
   );
 };
