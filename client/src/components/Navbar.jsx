@@ -36,11 +36,7 @@ const Navbar = () => {
                   History
                 </NavLink>
               </li>
-              <li>
-                <NavLink className={activeLink} to="/account">
-                  Account Preferences
-                </NavLink>
-              </li>
+
               <li>
                 <Link to="/" onClick={signOut} className="mr-4">
                   Sign Out

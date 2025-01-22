@@ -52,7 +52,6 @@ const HomePage = () => {
           }
         } else {
           const current = getMonthNumber();
-          console.log(typeof current);
           const { data, error } = await supabase.rpc("filter_by_month", {
             month_num: parseInt(current, 10),
           });
