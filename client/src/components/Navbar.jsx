@@ -20,7 +20,7 @@ const Navbar = () => {
       : "m-2 mr-4 p-1 cursor-pointer  rounded-md hover:border-white hover:text-white";
   return (
     <>
-      <div className="bg-DarkNav h-20 flex items-center justify-between shadow-md">
+      <div className="bg-Navb h-20 flex items-center justify-between shadow-md">
         <span className="text-2xl ml-4 ">Bill Tracker</span>
 
         <div className="">
