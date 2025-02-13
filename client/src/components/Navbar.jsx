@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const activeLink = ({ isActive }) =>
     isActive
-      ? "m-2 mr-4 p-3 cursor-pointer bg-Nav text-white hover:border-white hover:text-white rounded-md"
+      ? "m-2 mr-4 p-3 cursor-pointer bg-gray-900 bg-opacity-50 text-white hover:border-white hover:text-white rounded-md"
       : "m-2 mr-4 p-1 cursor-pointer  rounded-md hover:border-white hover:text-white";
   return (
     <>
