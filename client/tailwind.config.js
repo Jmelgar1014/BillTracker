@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         Nav: "rgb(25, 118, 210)",
+        DarkNav: "#121212",
       },
     },
   },
