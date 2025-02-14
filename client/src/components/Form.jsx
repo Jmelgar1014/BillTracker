@@ -96,7 +96,12 @@ const Form = ({ onFormSubmit }) => {
           />
         </div>
         <div className="flex justify-center">
-          <Button className="w-60" variant="contained" onClick={submitForm}>
+          <Button
+            className="w-60"
+            bg-black
+            variant="contained"
+            onClick={submitForm}
+          >
             Submit
           </Button>
         </div>
