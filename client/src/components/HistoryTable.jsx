@@ -10,9 +10,9 @@ const HistoryTable = ({ data }) => {
         <table className="table-fixed w-[800px] border-separate border-spacing-0 border-2  rounded-t-3xl border-slate-300 shadow-md">
           <thead className="">
             <tr className="h-16 ">
-              <th className="m-4 p-2 mx-16 ">Vendor</th>
-              <th className="m-4 p-2 mx-16 ">Amount</th>
-              <th className="m-4 p-2 mx-16 ">Date</th>
+              <th className="m-4 p-2 mx-16 underline">Vendor</th>
+              <th className="m-4 p-2 mx-16 underline">Amount</th>
+              <th className="m-4 p-2 mx-16 underline">Date</th>
             </tr>
           </thead>
           <tbody className=" ">
@@ -33,9 +33,9 @@ const HistoryTable = ({ data }) => {
                       </div>
                     </td>
                     <td className="border-t-2 border-slate-300 ">
-                      <div className="flex justify-center m-2 p-2 relative">
+                      <div className="flex justify-evenly items-center  p-2 relative">
                         {item.billdate}
-                        <div className=" absolute  right-0">
+                        <div className=" bg-black rounded-md m-2">
                           <Dialog item={item} />
                         </div>
 
