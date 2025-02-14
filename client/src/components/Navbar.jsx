@@ -41,7 +41,7 @@ const Navbar = () => {
                 <Link
                   to="/"
                   onClick={signOut}
-                  className="mr-4 text-xl text-white"
+                  className="mr-4 text-xl text-white hover:text-navText"
                 >
                   Sign Out
                 </Link>
