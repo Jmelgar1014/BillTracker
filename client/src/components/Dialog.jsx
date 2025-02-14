@@ -35,11 +35,12 @@ const AlertDialog = ({ item, onDelete }) => {
   return (
     <React.Fragment>
       <Button
+        size="small"
         variant="outlined"
         onClick={handleClickOpen}
-        className=" absolute  right-0 "
+        className=" absolute  right-0"
       >
-        <FaTrash />
+        <FaTrash className="text-white p-0" />
       </Button>
       <Dialog
         open={open}

@@ -16,12 +16,12 @@ const Navbar = () => {
 
   const activeLink = ({ isActive }) =>
     isActive
-      ? "m-2 mr-4 p-3 cursor-pointer bg-gray-900 bg-opacity-50 text-white hover:border-white hover:text-white rounded-md"
-      : "m-2 mr-4 p-1 cursor-pointer  rounded-md hover:border-white hover:text-white";
+      ? "m-2 mr-4 p-3 cursor-pointer  text-navText text-xl hover:border-white  rounded-md font-sans"
+      : "m-2 mr-4 p-1 cursor-pointer text-xl text-white  rounded-md hover:border-white hover:text-navText";
   return (
     <>
-      <div className="bg-Navb h-20 flex items-center justify-between shadow-md">
-        <span className="text-2xl ml-4 ">Bill Tracker</span>
+      <div className="bg-DarkNav h-20 flex items-center justify-between shadow-lg">
+        <span className="text-2xl ml-4 text-white">Bill Tracker</span>
 
         <div className="">
           <nav>
@@ -38,7 +38,11 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link to="/" onClick={signOut} className="mr-4">
+                <Link
+                  to="/"
+                  onClick={signOut}
+                  className="mr-4 text-xl text-white"
+                >
                   Sign Out
                 </Link>
               </li>
