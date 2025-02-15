@@ -30,7 +30,7 @@ const CurrentTable = ({ data, refresh }) => {
                   </td>
                   <td className="border-t-2 border-r-2 border-slate-300 ">
                     <div className="flex justify-center  ">
-                      {item.billamount}
+                      ${item.billamount}
                     </div>
                   </td>
                   <td className="border-t-2 border-slate-300 ">

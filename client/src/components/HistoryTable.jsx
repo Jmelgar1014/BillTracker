@@ -29,7 +29,7 @@ const HistoryTable = ({ data }) => {
                     </td>
                     <td className="border-t-2 border-r-2 border-slate-300 ">
                       <div className="flex justify-center m-2 p-2">
-                        {item.billamount}
+                        ${item.billamount}
                       </div>
                     </td>
                     <td className="border-t-2 border-slate-300 ">
@@ -38,14 +38,6 @@ const HistoryTable = ({ data }) => {
                         <div className=" bg-black rounded-md m-2">
                           <Dialog item={item} />
                         </div>
-
-                        {/* <button
-                          className=" absolute  right-0"
-                          value={item.item_id}
-                          onClick={removeItem}
-                        >
-                          <FaTrash className=" text-xl hover:text-red-700  rounded-md " />
-                        </button> */}
                       </div>
                     </td>
                   </tr>

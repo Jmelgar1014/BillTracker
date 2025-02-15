@@ -1,0 +1,8 @@
+
+
+-[x] add dollar sign to amount column for each row
+-[] possibly add a component to change curreny sign dependent on user 
+-[] add a button to select currency
+-[] add an arrow to the history table header to be able to sort through the history
+-[] make website responsive
+-[x] make year dynamic instead of static
