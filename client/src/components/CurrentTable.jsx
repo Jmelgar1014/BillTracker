@@ -3,6 +3,7 @@ import React from "react";
 
 import Dialog from "../components/Dialog";
 import MonthList from "./MonthList";
+import Filter from "./Filter";
 
 const CurrentTable = ({ data, refresh }) => {
   return (
@@ -10,10 +11,22 @@ const CurrentTable = ({ data, refresh }) => {
       <div className="flex justify-center m-16">
         <table className="table-auto w-[600px] border-separate border-spacing-0 border-2  rounded-t-3xl border-slate-300 shadow-md">
           <thead className="">
-            <tr className="h-16 ">
-              <th className="m-4 p-2 mx-16 underline">Vendor</th>
-              <th className="m-4 p-2 mx-16 underline">Amount</th>
-              <th className="m-4 p-2 mx-16 underline">Date</th>
+            <tr className="h-24  ">
+              <th className="p-2 mx-4 underline ">
+                <span className="flex justify-center">
+                  Vendor <Filter />
+                </span>
+              </th>
+              <th className=" p-2 mx-4 underline ">
+                <span className="flex justify-center">
+                  Amount <Filter />
+                </span>
+              </th>
+              <th className=" p-2 mx-4 underline ">
+                <span className="flex justify-center">
+                  Date <Filter />
+                </span>
+              </th>
             </tr>
           </thead>
           <tbody className=" ">
