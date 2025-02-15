@@ -14,6 +14,7 @@ import {
 } from "recharts";
 
 import getMonth from "../getMonth";
+import getYear from "../getYear";
 
 const Chart = ({ data }) => {
   const { month } = useParams();
@@ -21,9 +22,13 @@ const Chart = ({ data }) => {
     <>
       <div className="flex justify-center mt-12">
         {month ? (
-          <h1 className="text-3xl">{month} 2025</h1>
+          <h1 className="text-3xl">
+            {month} {getYear()}
+          </h1>
         ) : (
-          <h1 className="text-3xl">{getMonth()} 2025</h1>
+          <h1 className="text-3xl">
+            {getMonth()} {getYear()}
+          </h1>
         )}
       </div>
       <div className="flex justify-center mt-14">
