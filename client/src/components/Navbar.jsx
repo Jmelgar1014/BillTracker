@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import supabase from "../../supaBaseData";
 import { useNavigate } from "react-router-dom";
-
+import Hamburger from "./Hamburger";
 const Navbar = () => {
   const navigate = useNavigate();
 
@@ -24,7 +24,8 @@ const Navbar = () => {
         <span className="text-2xl ml-4 text-white">Bill Tracker</span>
 
         <div className="">
-          <nav>
+          <Hamburger className="" />
+          <nav className="hidden sm:block ">
             <ul className="flex">
               <li>
                 <NavLink className={activeLink} to="/home">
