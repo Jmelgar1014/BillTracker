@@ -37,7 +37,17 @@ const Chart = ({ data }) => {
           <XAxis dataKey="vendor" />
           <CartesianGrid />
           <Tooltip content={<CustomTooltip />} />
-          <Legend />
+          <Legend
+            width={100}
+            wrapperStyle={{
+              top: 40,
+              right: 20,
+              backgroundColor: "#f5f5f5",
+              border: "1px solid #d5d5d5",
+              borderRadius: 3,
+              lineHeight: "20px",
+            }}
+          />
           <Bar type="monotone" dataKey="billamount" />
         </BarChart>
       </div>
