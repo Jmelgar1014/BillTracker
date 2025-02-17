@@ -40,7 +40,7 @@ const Chart = ({ data }) => {
           <Legend
             width={100}
             wrapperStyle={{
-              top: 40,
+              bottom: 0,
               right: 20,
               backgroundColor: "#f5f5f5",
               border: "1px solid #d5d5d5",
