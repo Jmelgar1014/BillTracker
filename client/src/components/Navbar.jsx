@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import supabase from "../../supaBaseData";
 import { useNavigate } from "react-router-dom";
 import Hamburger from "./Hamburger";
+import { useState } from "react";
 const Navbar = () => {
   const navigate = useNavigate();
 

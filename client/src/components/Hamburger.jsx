@@ -1,17 +1,31 @@
+import { Experimental_CssVarsProvider } from "@mui/material";
 import React from "react";
-
+import { useState } from "react";
+import HamburgerClosed from "./HamburgerClosed";
+import HamburgerOpen from "./HamburgerOpen";
+import ResponsiveNav from "./ResponsiveNav";
 const Hamburger = () => {
+  const [hamburger, setHamburger] = useState(false);
+  const mobileMenu = () => {
+    if (hamburger) {
+      setHamburger(false);
+      console.log("closed");
+    } else {
+      setHamburger(true);
+      console.log("opened");
+    }
+  };
+
   return (
     <>
-      <svg
-        width="35"
-        height="35"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        className="text-white sm:hidden mr-4"
-      >
-        <path fill="currentColor" d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z" />
-      </svg>
+      {hamburger ? (
+        <>
+          <HamburgerClosed handleHamburger={mobileMenu} />
+          <ResponsiveNav />
+        </>
+      ) : (
+        <HamburgerOpen handleHamburger={mobileMenu} />
+      )}
     </>
   );
 };
