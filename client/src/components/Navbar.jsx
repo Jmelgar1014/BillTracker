@@ -4,7 +4,9 @@ import supabase from "../../supaBaseData";
 import { useNavigate } from "react-router-dom";
 import Hamburger from "./Hamburger";
 import { useState } from "react";
+import ResponsiveNav from "./ResponsiveNav";
 const Navbar = () => {
+  const [hamburger, setHamburger] = useState(false);
   const navigate = useNavigate();
 
   const signOut = async (e) => {
@@ -19,13 +21,17 @@ const Navbar = () => {
     isActive
       ? "m-2 mr-4 p-3 cursor-pointer  text-navText text-xl hover:border-white  rounded-md font-sans"
       : "m-2 mr-4 p-1 cursor-pointer text-xl text-white  rounded-md hover:border-white hover:text-navText";
+
+  const toggleHamburger = () => {
+    setHamburger(!hamburger);
+  };
   return (
     <>
       <div className="bg-DarkNav h-20 flex items-center justify-between shadow-lg">
         <span className="text-2xl ml-4 text-white">Bill Tracker</span>
 
         <div className="">
-          <Hamburger className="" />
+          <Hamburger isOpen={hamburger} toggleHamburger={toggleHamburger} />
           <nav className="hidden sm:block ">
             <ul className="flex">
               <li>
@@ -52,6 +58,7 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
+      <ResponsiveNav isOpen={hamburger} />
     </>
   );
 };
