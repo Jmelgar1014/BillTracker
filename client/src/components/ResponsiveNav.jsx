@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import supabase from "../../supaBaseData";
 import { useNavigate } from "react-router-dom";
-const ResponsiveNav = () => {
+import { is } from "date-fns/locale";
+const ResponsiveNav = ({ isOpen }) => {
+  const navigate = useNavigate();
   const signOut = async (e) => {
     e.preventDefault();
 
@@ -10,40 +13,30 @@ const ResponsiveNav = () => {
 
     navigate("/login");
   };
+
+  if (!isOpen) return null;
   return (
     <>
-      <div className="absolute top-24 right-1">
-        <nav className=" bg-white w-96 flex justify-center">
-          <ul className="">
-            <li>
-              <NavLink
-                to="/home"
-                className="mr-4 text-xl text-black hover:text-navText"
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/history"
-                className="mr-4 text-xl text-black hover:text-navText"
-              >
-                History
-              </NavLink>
-            </li>
-
-            <li>
-              <Link
-                to="/"
-                onClick={signOut}
-                className="mr-4 text-xl text-black hover:text-navText"
-              >
-                Sign Out
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <nav className="flex flex-col items-start p-4 space-y-2 bg-DarkNav">
+        <NavLink
+          to="/home"
+          className="block text-white text-lg hover:text-gray-700"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/history"
+          className="block text-white text-lg hover:text-gray-700"
+        >
+          History
+        </NavLink>
+        <NavLink
+          to="/"
+          className="block text-white text-lg hover:text-gray-700"
+        >
+          Sign Out
+        </NavLink>
+      </nav>
     </>
   );
 };
