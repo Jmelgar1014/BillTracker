@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import supabase from "../../supaBaseData";
 import { useNavigate } from "react-router-dom";
-import { is } from "date-fns/locale";
+
 const ResponsiveNav = ({ isOpen }) => {
   const navigate = useNavigate();
   const signOut = async (e) => {
