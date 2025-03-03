@@ -6,3 +6,5 @@
 -[] add an arrow to the history table header to be able to sort through the history
 -[] make website responsive
 -[x] make year dynamic instead of static
+
+making changes to force merge
