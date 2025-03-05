@@ -9,7 +9,7 @@ const HamburgerClosed = ({ handleHamburger }) => {
         height="35"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
-        className="text-white sm:hidden mr-4"
+        className="text-white sm:hidden mr-4 cursor-pointer"
         onClick={handleHamburger}
       >
         <path

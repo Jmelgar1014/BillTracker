@@ -4,16 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import supabase from "../../supaBaseData";
 import { useNavigate } from "react-router-dom";
 
-const ResponsiveNav = ({ isOpen }) => {
-  const navigate = useNavigate();
-  const signOut = async (e) => {
-    e.preventDefault();
-
-    const { error } = await supabase.auth.signOut();
-
-    navigate("/login");
-  };
-
+const ResponsiveNav = ({ isOpen, signOut }) => {
   if (!isOpen) return null;
   return (
     <>
@@ -30,12 +21,12 @@ const ResponsiveNav = ({ isOpen }) => {
         >
           History
         </NavLink>
-        <NavLink
-          to="/"
+        <Link
+          onClick={signOut}
           className="block text-white text-lg hover:text-gray-700"
         >
           Sign Out
-        </NavLink>
+        </Link>
       </nav>
     </>
   );

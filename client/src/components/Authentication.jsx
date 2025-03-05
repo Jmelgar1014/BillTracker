@@ -26,9 +26,13 @@ export default function App() {
 
   if (!session) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen bg-black">
         <div className="w-80 ">
-          <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} />
+          <Auth
+            supabaseClient={supabase}
+            appearance={{ theme: ThemeSupa }}
+            theme="dark"
+          />
         </div>
       </div>
     );

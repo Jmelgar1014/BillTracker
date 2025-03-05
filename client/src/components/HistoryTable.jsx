@@ -7,12 +7,12 @@ const HistoryTable = ({ data }) => {
   return (
     <>
       <div className="flex justify-center m-16">
-        <table className="table-fixed w-[800px] border-separate border-spacing-0 border-2  rounded-t-3xl border-slate-300 shadow-md">
+        <table className="table-auto w-[600px] border-separate border-spacing-0 border-2  rounded-t-3xl border-slate-300 shadow-md">
           <thead className="">
-            <tr className="h-16 ">
-              <th className="m-4 p-2 mx-16 underline">Vendor</th>
-              <th className="m-4 p-2 mx-16 underline">Amount</th>
-              <th className="m-4 p-2 mx-16 underline">Date</th>
+            <tr className="h-24">
+              <th className="p-2 mx-4 underline">Vendor</th>
+              <th className="p-2 mx-4 underline">Amount</th>
+              <th className="p-2 mx-4 underline">Date</th>
             </tr>
           </thead>
           <tbody className=" ">
@@ -23,12 +23,12 @@ const HistoryTable = ({ data }) => {
                     key={item.item_id}
                   >
                     <td className="border-t-2 border-r-2 border-slate-300 ">
-                      <div className="flex justify-center m-2 p-2 rounded-xl">
+                      <div className="flex justify-center rounded-xl">
                         {item.vendor}
                       </div>
                     </td>
                     <td className="border-t-2 border-r-2 border-slate-300 ">
-                      <div className="flex justify-center m-2 p-2">
+                      <div className="flex justify-center">
                         ${item.billamount}
                       </div>
                     </td>
@@ -36,7 +36,7 @@ const HistoryTable = ({ data }) => {
                       <div className="flex justify-evenly items-center  p-2 relative">
                         {item.billdate}
                         <div className=" bg-black rounded-md m-2">
-                          <Dialog item={item} />
+                          <Dialog className="p-0" item={item} />
                         </div>
                       </div>
                     </td>
