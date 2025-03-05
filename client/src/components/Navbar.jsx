@@ -47,6 +47,7 @@ const Navbar = () => {
 
               <li>
                 <Link
+                  to="/"
                   onClick={signOut}
                   className="mr-4 text-xl text-white hover:text-navText"
                 >

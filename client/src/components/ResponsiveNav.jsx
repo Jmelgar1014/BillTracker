@@ -22,6 +22,7 @@ const ResponsiveNav = ({ isOpen, signOut }) => {
           History
         </NavLink>
         <Link
+          to="/"
           onClick={signOut}
           className="block text-white text-lg hover:text-gray-700"
         >
