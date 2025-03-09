@@ -9,7 +9,7 @@ export default {
         navText: "#aaaaaa",
       },
       fontFamily: {
-        sans: "Inter",
+        sans: ["Verdana", "sans-serif"],
       },
     },
   },

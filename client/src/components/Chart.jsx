@@ -22,11 +22,11 @@ const Chart = ({ data }) => {
     <>
       <div className="flex justify-center mt-12">
         {month ? (
-          <h1 className="text-3xl">
+          <h1 className="text-3xl font-sans">
             {month} {getYear()}
           </h1>
         ) : (
-          <h1 className="text-3xl">
+          <h1 className="text-3xl font-sans">
             {getMonth()} {getYear()}
           </h1>
         )}
