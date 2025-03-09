@@ -58,7 +58,7 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-      <ResponsiveNav isOpen={hamburger} signOut={signOut} />
+      <ResponsiveNav isOpen={hamburger} signOut={signOut} className="" />
     </>
   );
 };

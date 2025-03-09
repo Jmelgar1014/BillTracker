@@ -8,7 +8,7 @@ const ResponsiveNav = ({ isOpen, signOut }) => {
   if (!isOpen) return null;
   return (
     <>
-      <nav className="flex flex-col items-start p-4 space-y-2 bg-DarkNav">
+      <nav className="flex flex-col items-start p-4 space-y-2 bg-DarkNav sm:hidden">
         <NavLink
           to="/home"
           className="block text-white text-lg hover:text-gray-700"

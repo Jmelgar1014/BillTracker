@@ -17,16 +17,16 @@ const CurrentTable = ({ data, refresh }) => {
             <thead className="">
               <tr className="h-24  ">
                 <th className="p-2 mx-4 underline ">
-                  <span className="flex justify-center">
+                  <span className="flex justify-center font-sans">
                     Vendor <Filter />
                   </span>
                 </th>
                 <th className=" p-2 mx-4 underline ">
-                  <span className="flex justify-center">
+                  <span className="flex justify-center font-sans">
                     Amount <Filter />
                   </span>
                 </th>
-                <th className=" p-2 mx-4 underline ">
+                <th className=" p-2 mx-4 underline font-sans">
                   <span className="flex justify-center">
                     Date <Filter />
                   </span>
