@@ -37,21 +37,21 @@ const CurrentTable = ({ data, refresh }) => {
               {data.length > 0 ? (
                 data.map((item) => (
                   <tr
-                    className="hover:bg-slate-300/30 cursor-pointer"
+                    className="hover:bg-slate-300/30 cursor-pointer font-sans"
                     key={item.item_id}
                   >
-                    <td className="border-t-2 border-r-2 border-slate-300 ">
+                    <td className="border-t-2 border-r-2 border-slate-300 font-sans">
                       <div className="flex justify-center  rounded-xl">
                         {item.vendor}
                       </div>
                     </td>
-                    <td className="border-t-2 border-r-2 border-slate-300 ">
+                    <td className="border-t-2 border-r-2 border-slate-300 font-sans">
                       <div className="flex justify-center  ">
                         ${item.billamount}
                       </div>
                     </td>
                     <td className="border-t-2 border-slate-300 ">
-                      <div className="flex justify-evenly items-center p-2 relative">
+                      <div className="flex justify-evenly items-center p-2 relative font-sans">
                         {item.billdate}
                         <div className="  bg-black rounded-md m-2 ">
                           <Dialog
