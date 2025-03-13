@@ -11,6 +11,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import getMonth from "../getMonth";
 import { getMonthNumber } from "../getMonth";
 import { ContinuousColorLegend } from "@mui/x-charts";
+import Dialog from "../components/Dialog";
+import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
 const HomePage = () => {
   const { month } = useParams();
   const navigate = useNavigate();
@@ -75,6 +77,42 @@ const HomePage = () => {
   const handleRefresh = () => {
     setRefresh((prev) => !prev);
   };
+
+  const finalResult = items.map((item, idx) => ({
+    id: item.item_id,
+    Vendor: item.vendor,
+    "Vendor Amount": item.billamount,
+    Date: item.billdate,
+  }));
+
+  console.log(finalResult);
+  const handleDelete = (itemId) => {
+    // Update state to remove deleted item
+    setItems((prevItems) =>
+      prevItems.filter((item) => item.item_id !== itemId)
+    );
+  };
+  const columns = [
+    { field: "Vendor", headerName: "Vendor", width: 150 },
+    { field: "Vendor Amount", headerName: "Amount", width: 125 },
+    { field: "Date", headerName: "Date", width: 110 },
+    {
+      field: "Delete",
+      headerName: "Delete",
+      width: 125,
+      renderCell: (params) => (
+        <div className="flex justify-center items-center">
+          <div className="flex justify-center bg-black h-6 items-center rounded-md mt-4">
+            <Dialog
+              itemId={params.row.id}
+              onDelete={() => handleDelete(params.row.id)}
+            />
+          </div>
+        </div>
+      ),
+    },
+  ];
+
   return (
     <>
       <Navbar />
@@ -83,7 +121,22 @@ const HomePage = () => {
       {loading ? (
         <Spinner size="60px" />
       ) : (
-        <CurrentTable data={items} refresh={handleRefresh} />
+        <div className="">
+          <div className=" flex-col sm:flex sm:justify-center ">
+            <MonthList />
+            {items.length > 0 ? (
+              <>
+                <div className="w-screen mt-20 sm:w-6/12 sm:flex sm:justify-center sm:mt-20">
+                  <div style={{ height: 500, width: "100%" }}>
+                    <DataGrid rows={finalResult} columns={columns} />
+                  </div>
+                </div>
+              </>
+            ) : (
+              "Submit information to display here."
+            )}{" "}
+          </div>
+        </div>
       )}
     </>
   );

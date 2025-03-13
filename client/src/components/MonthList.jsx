@@ -17,7 +17,7 @@ const MonthList = () => {
     navigate(`/home/${selectedMonth}`); // Replace `/your-base-url/` with your desired base URL.
   };
   return (
-    <div className="w-32 ml-4 mt-8">
+    <div className="sm:mt-20 sm:mr-8">
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Month</InputLabel>
