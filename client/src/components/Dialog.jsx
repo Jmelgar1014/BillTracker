@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { FaTrash } from "react-icons/fa";
 import supabase from "../../supaBaseData";
 
-const AlertDialog = ({ item, onDelete }) => {
+const AlertDialog = ({ onDelete, itemId }) => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = (e) => {
@@ -22,12 +22,11 @@ const AlertDialog = ({ item, onDelete }) => {
 
   const handleDelete = async (e) => {
     setOpen(false);
-    const rowId = e.target.value;
 
     const response = await supabase
       .from("row_items")
       .delete()
-      .eq("item_id", rowId);
+      .eq("item_id", itemId);
 
     onDelete();
   };
@@ -58,7 +57,7 @@ const AlertDialog = ({ item, onDelete }) => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Disagree</Button>
-          <Button value={item.item_id} onClick={handleDelete} autoFocus>
+          <Button value={itemId} onClick={handleDelete} autoFocus>
             Agree
           </Button>
         </DialogActions>
