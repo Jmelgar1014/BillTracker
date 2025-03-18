@@ -11,7 +11,7 @@ const FilterTable = () => {
   return (
     <>
       <div style={{ height: 300, width: "100%" }}>
-        <DataGrid />
+        <DataGrid rows={rows} columns={columns} />
       </div>
     </>
   );
