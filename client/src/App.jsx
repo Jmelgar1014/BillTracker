@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import HistoryPage from "./pages/HistoryPage";
 import Account from "./pages/Account";
 import LoginPage from "./pages/LoginPage";
+import MLoginPage from "./pages/MLoginPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -18,7 +19,7 @@ const router = createBrowserRouter(
       <Route path="/home/:month" element={<HomePage />} />
       <Route path="/history" element={<HistoryPage />} />
       <Route path="/account" element={<Account />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<MLoginPage />} />
     </>
   )
 );

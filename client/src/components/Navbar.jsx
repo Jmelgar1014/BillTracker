@@ -19,16 +19,16 @@ const Navbar = () => {
 
   const activeLink = ({ isActive }) =>
     isActive
-      ? "m-2 mr-4 p-3 cursor-pointer  text-navText text-xl hover:border-white  rounded-md font-sans"
-      : "m-2 mr-4 p-1 cursor-pointer text-xl text-white  rounded-md hover:border-white hover:text-navText";
+      ? "m-2 mr-4 p-3 cursor-pointer  text-newLightBlue text-xl hover:border-white  rounded-md font-sans"
+      : "m-2 mr-4 p-1 cursor-pointer text-xl text-newLightBlue  rounded-md hover:border-white hover:text-newLightestBlue";
 
   const toggleHamburger = () => {
     setHamburger(!hamburger);
   };
   return (
     <>
-      <div className="bg-DarkNav h-20 flex items-center justify-between shadow-lg">
-        <span className="text-2xl ml-4 text-white">Bill Tracker</span>
+      <div className="bg-newNav h-20 flex items-center justify-between shadow-lg">
+        <span className="text-2xl ml-4 text-newLightBlue">Bill Tracker</span>
 
         <div className="">
           <Hamburger isOpen={hamburger} toggleHamburger={toggleHamburger} />
@@ -49,7 +49,7 @@ const Navbar = () => {
                 <Link
                   to="/"
                   onClick={signOut}
-                  className="mr-4 text-xl text-white hover:text-navText"
+                  className="mr-4 text-xl text-newLightBlue hover:text-newLightestBlue"
                 >
                   Sign Out
                 </Link>

@@ -122,11 +122,11 @@ const HomePage = () => {
         <Spinner size="60px" />
       ) : (
         <div className="">
-          <div className=" flex-col sm:flex sm:justify-center ">
+          <div className="flex flex-col sm:flex-row sm:justify-center ">
             <MonthList />
             {items.length > 0 ? (
               <>
-                <div className="w-screen mt-20 sm:w-6/12 sm:flex sm:justify-center sm:mt-20">
+                <div className=" mt-20 sm:w-6/12 flex justify-center sm:mt-20">
                   <div style={{ height: 500, width: "100%" }}>
                     <DataGrid rows={finalResult} columns={columns} />
                   </div>
