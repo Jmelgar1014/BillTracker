@@ -3,23 +3,23 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import supabase from "../../supaBaseData";
-const SignIn = ({ logging }) => {
+const SignUp = ({ logging }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
-  async function signInWithEmail(Email, Password) {
-    const { data, error } = await supabase.auth.signInWithPassword({
+  async function signUpNewUser(Email, Password) {
+    const { data, error } = await supabase.auth.signUp({
       email: Email,
       password: Password,
+      options: {
+        emailRedirectTo: "https://example.com/welcome",
+      },
     });
-    if (data.session) {
-      navigate("/home");
-    }
-
-    if (error) {
-      alert("Email/Password is incorrect");
-      return;
+    if (data) {
+      Console.log("You have successfully signed up");
+    } else {
+      Console.log("error");
     }
   }
 
@@ -29,7 +29,7 @@ const SignIn = ({ logging }) => {
     console.log(email);
     console.log(pass);
 
-    signInWithEmail(email, pass);
+    signUpNewUser(email, pass);
   };
 
   return (
@@ -38,7 +38,7 @@ const SignIn = ({ logging }) => {
         <div className="flex items-center p-8">
           <div className="bg-newNav sm:m-auto h-29 w-full sm:w-29 p-8 rounded-md border border-newDarkBlue shadow-lg">
             <h3 className="text-xl text-newLightestBlue mb-4">Bill Tracker</h3>
-            <h1 className="text-newLightBlue text-4xl mb-4">Sign In</h1>
+            <h1 className="text-newLightBlue text-4xl mb-4">Sign Up</h1>
             <form action="" className="w-full">
               <div className="inline-flex flex-col w-full">
                 <label htmlFor="email" className="text-newDarkBlue mb-2">
@@ -55,7 +55,7 @@ const SignIn = ({ logging }) => {
                   />
                 </div>
               </div>
-              <div className="inline-flex flex-col w-full mb-10">
+              <div className="inline-flex flex-col w-full mb-8">
                 <label
                   htmlFor="password"
                   className="text-newDarkBlue mb-2 placeholder:text-sm"
@@ -76,14 +76,9 @@ const SignIn = ({ logging }) => {
               <div className="mb-2">
                 <button
                   onClick={handleSubmit}
-                  className="bg-newLightBlue text-newDarkBlue rounded-md sm:w-96 px-4 py-2 text-sm hover:bg-newLightestBlue hover:text-newLightBlue hover:shadow-md w-full"
+                  className="bg-newLightBlue text-newDarkBlue rounded-md sm:w-96 px-4 py-2 text-sm hover:bg-newLightestBlue hover:text-newLightBlue hover:shadow-md w-full mb-4"
                 >
-                  Sign In
-                </button>
-              </div>
-              <div className="flex justify-center">
-                <button className="text-newLightBlue hover:text-newLightestBlue underline">
-                  Forgot your password?
+                  Sign Up
                 </button>
               </div>
             </form>
@@ -91,12 +86,12 @@ const SignIn = ({ logging }) => {
               <div className="h-half bg-newLightBlue w-full rounded-md mt-4"></div>
               <div className="flex justify-center mt-4">
                 <p className="text-white">
-                  Don&apos;t have an account?{" "}
+                  Already have an account?{" "}
                   <span
                     className="text-newDarkBlue hover:cursor-pointer hover:text-newLightestBlue"
                     onClick={logging}
                   >
-                    Sign Up
+                    Sign In
                   </span>
                 </p>
               </div>
@@ -108,4 +103,4 @@ const SignIn = ({ logging }) => {
   );
 };
 
-export default SignIn;
+export default SignUp;

@@ -1,10 +1,21 @@
 import React from "react";
-import Authentication from "../components/Authentication";
+import SignIn from "../components/SignIn";
+import SignUp from "../components/SignUp";
+import { useState } from "react";
 
 const LoginPage = () => {
+  const [logging, setLogging] = useState("false");
+
+  const handleLog = () => {
+    setLogging((prev) => !prev);
+  };
   return (
     <>
-      <Authentication />
+      {logging ? (
+        <SignIn logging={handleLog} />
+      ) : (
+        <SignUp logging={handleLog} />
+      )}
     </>
   );
 };
