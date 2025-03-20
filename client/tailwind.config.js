@@ -17,6 +17,7 @@ export default {
       },
       height: {
         41: "41rem",
+        half: "2px",
       },
       width: {
         29: "28rem",
